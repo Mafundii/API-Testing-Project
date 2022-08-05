@@ -21,7 +21,6 @@ public class NamedayForTomorrowService
 
     public NamedayForTomorrowService()
     {
-        //CallManager = new CallManager("https://nameday.abalin.net/api/V1");
         CallManager = new CallManager();
         NamedayTodayDTO = new DTO<NamedayResponse>();
     }
