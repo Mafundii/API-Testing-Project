@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APITests.NameDayTodayTests.PostToday
+namespace APITests.NameDayYesterdayTests.GetYesterday
 {
-    public class POST_NameDayServiceForTodayIsCalled_WithInvalidParameters
+    public class GET_NameDayServiceForYesterdayIsCalled_WithInvalidParameters
     {
     }
 }

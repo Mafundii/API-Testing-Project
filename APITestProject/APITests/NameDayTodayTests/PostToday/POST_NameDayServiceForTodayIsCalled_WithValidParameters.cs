@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDayTodayTests.PostToday
 {
-    internal class NameDayServiceForTomorrowIsCalled_WithValidParameters
+    public class POST_NameDayServiceForTomorrowIsCalled_WithValidParameters
     {
     }
 }
