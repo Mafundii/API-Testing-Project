@@ -1,4 +1,4 @@
-﻿using NameDaysAPIFramework;
+﻿using APITestProjectApp;
 using RestSharp;
 using System;
 using System.Collections.Generic;
