@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace NameDaysAPIFramework;
+namespace APITestProjectApp;
 
 public class ConfigReader
 {

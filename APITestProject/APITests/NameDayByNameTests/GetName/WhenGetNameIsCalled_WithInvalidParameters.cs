@@ -8,13 +8,6 @@ namespace APITests.NameDayByNameTests.GetName
 {
     public class WhenGetNameIsCalled_WithInvalidParameters
     {
-        GetName = _getName;
-
-        [OneTimeSetUp]
-        public async Task OneTimeSetUpAsync()
-        {
-            _getName = new GetName();
-            await _getName.MakesRequestAsync();
-        }
+        
     }
 }
