@@ -16,5 +16,13 @@ namespace APITests.NameDayByNameTests.GetName
             _getName = new GetName();
             await _getName.MakesRequestAsync();
         }
+        public void GivenInvalidName_XXX_ReturnsError422()
+        {
+            throw new NotImplementedException();
+        }
+        public void GivenInvalidCountry_XXX_ReturnsError422()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
