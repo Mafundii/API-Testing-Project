@@ -4,6 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MojangAPIClasses.DataHandling;
+namespace DataHandling;
 
 public interface IResponse{}

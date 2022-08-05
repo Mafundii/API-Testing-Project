@@ -1,6 +1,5 @@
-﻿using MojangAPIClasses.DataHandling;
-using MojangAPIClasses.HTTPManager;
-using NameDaysAPIFramework.DataHandling;
+﻿using DataHandling;
+using HTTPManager;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace NameDaysAPIFramework.Services;
 
-public class NamedayForToday
+public class NamedayForNameService
 {
     #region Properties
     public CallManager CallManager { get; set; }
@@ -20,7 +19,7 @@ public class NamedayForToday
     public JObject? JsonResponse { get; set; }
     #endregion
 
-    public NamedayForToday()
+    public NamedayForNameService()
     {
         CallManager = new CallManager();
         NamedayTodayDTO = new DTO<NamedayResponse>();
@@ -28,14 +27,14 @@ public class NamedayForToday
 
     public async Task MakeRequest(Dictionary<string, string> parameters, Method method)
     {
-        Response = await CallManager.MakeRequest("today", parameters, method);
+        Response = await CallManager.MakeRequest("getname", parameters, method);
         JsonResponse = JObject.Parse(Response);
         NamedayTodayDTO.DeserialiseResponse(Response);
     }
 
     public async Task MakeRequest(Method method)
     {
-        Response = await CallManager.MakeRequest("today", new Dictionary<string, string>(), method);
+        Response = await CallManager.MakeRequest("getname", new Dictionary<string, string>(), method);
         JsonResponse = JObject.Parse(Response);
         NamedayTodayDTO.DeserialiseResponse(Response);
     }
