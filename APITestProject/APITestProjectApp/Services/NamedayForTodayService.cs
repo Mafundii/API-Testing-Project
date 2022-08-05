@@ -1,6 +1,5 @@
-﻿using MojangAPIClasses.DataHandling;
-using MojangAPIClasses.HTTPManager;
-using NameDaysAPIFramework.DataHandling;
+﻿using DataHandling;
+using HTTPManager;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace NameDaysAPIFramework.Services;
 
-public class NamedayForToday
+public class NamedayForTodayService
 {
     #region Properties
     public CallManager CallManager { get; set; }
@@ -20,8 +19,9 @@ public class NamedayForToday
     public JObject? JsonResponse { get; set; }
     #endregion
 
-    public NamedayForToday()
+    public NamedayForTodayService()
     {
+        //CallManager = new CallManager("https://nameday.abalin.net/api/V1");
         CallManager = new CallManager();
         NamedayTodayDTO = new DTO<NamedayResponse>();
     }
