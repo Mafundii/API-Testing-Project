@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDayTodayTests.GetToday
 {
-    internal class NameDayServiceIsCalled_WithValidParameters
+    public class GET_NameDayServiceForTodayIsCalled_WithValidParameters
     {
     }
 }
