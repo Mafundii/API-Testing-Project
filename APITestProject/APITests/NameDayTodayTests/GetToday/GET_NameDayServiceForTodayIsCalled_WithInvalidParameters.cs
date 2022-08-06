@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDayTodayTests.GetToday;
 
-public class WhenNameDayServiceIsCalled_WithInvalidParameters
+[Category("GetToday")]
+public class WhenNameDayForTodayServiceIsCalled_WithGetMethodAndInvalidParameters
 {
     NamedayForTodayService _nameDayForTodayService;
     [OneTimeSetUp]
