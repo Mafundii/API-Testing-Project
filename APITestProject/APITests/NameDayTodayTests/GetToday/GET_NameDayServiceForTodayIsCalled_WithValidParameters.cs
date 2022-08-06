@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDayTodayTests.GetToday;
 
-public class GET_NameDayServiceForTodayIsCalled_WithValidParameters
+[Category("GetToday")]
+public class WhenNameDayForTodayServiceIsCalled_WithGetMethodAndValidParameters
 {
     NamedayForTodayService _nameDayForTodayService;
+    DateTime _apiDefaultTime;
     [OneTimeSetUp]
     public void Setup()
     {
+        _apiDefaultTime = DateTime.UtcNow.AddHours(2);
         _nameDayForTodayService = new NamedayForTodayService();
     }
 
@@ -33,8 +36,8 @@ public class GET_NameDayServiceForTodayIsCalled_WithValidParameters
     public async Task GivenNoParameters_DateIsToday()
     {
         await _nameDayForTodayService.MakeRequest(Method.Get);
-        Assert.That(_nameDayForTodayService.NamedayTodayDTO.Response.day, Is.EqualTo(DateTime.Now.Day));
-        Assert.That(_nameDayForTodayService.NamedayTodayDTO.Response.month, Is.EqualTo(DateTime.Now.Month));
+        Assert.That(_nameDayForTodayService.NamedayTodayDTO.Response.day, Is.EqualTo(_apiDefaultTime.Day));
+        Assert.That(_nameDayForTodayService.NamedayTodayDTO.Response.month, Is.EqualTo(_apiDefaultTime.Month));
     }
 
     [Test]
@@ -70,8 +73,8 @@ public class GET_NameDayServiceForTodayIsCalled_WithValidParameters
         };
 
         await _nameDayForTodayService.MakeRequest(param, Method.Get);
-        Assert.That(_nameDayForTodayService.NamedayTodayDTO.Response.day, Is.EqualTo(DateTime.Now.Day));
-        Assert.That(_nameDayForTodayService.NamedayTodayDTO.Response.month, Is.EqualTo(DateTime.Now.Month));
+        Assert.That(_nameDayForTodayService.NamedayTodayDTO.Response.day, Is.EqualTo(_apiDefaultTime.Day));
+        Assert.That(_nameDayForTodayService.NamedayTodayDTO.Response.month, Is.EqualTo(_apiDefaultTime.Month));
     }
 
     [Test]
