@@ -1,16 +1,16 @@
-﻿using MojangAPIClasses.DataHandling;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NameDaysAPIFramework.DataHandling;
+namespace DataHandling;
 
 public class NamedayResponse : IResponse
 {
     public int day { get; set; }
     public int month { get; set; }
+    public string country { get; set; }
     public Nameday nameday { get; set; }
 }
 
