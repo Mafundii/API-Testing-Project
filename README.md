@@ -43,6 +43,54 @@ public interface IService
 
 The classes make use of a number of sync and async methods to communicate with the API and receive relevant information according to the input provided.
 
+### 3. Example of Service Class
+
+This class corresponds to the request for the namedays for the current day.
+
+```c#
+public class NamedayForTodayService
+{
+    #region Properties
+    public CallManager CallManager { get; set; }
+    public DTO<NamedayResponse> NamedayTodayDTO { get; set; }
+    public string Response { get; set; }
+    public JObject? JsonResponse { get; set; }
+    #endregion
+
+    public NamedayForTodayService()
+    {
+        CallManager = new CallManager();
+        NamedayTodayDTO = new DTO<NamedayResponse>();
+    }
+
+    public async Task MakeRequest(Dictionary<string, string> parameters, Method method)
+    {
+        Response = await CallManager.MakeRequest("today", parameters, method);
+        JsonResponse = JObject.Parse(Response);
+        NamedayTodayDTO.DeserialiseResponse(Response);
+    }
+
+    public async Task MakeRequest(Method method)
+    {
+        Response = await CallManager.MakeRequest("today", new Dictionary<string, string>(), method);
+        JsonResponse = JObject.Parse(Response);
+        NamedayTodayDTO.DeserialiseResponse(Response);
+    }
+
+    public int GetStatusCode()
+    {
+        return (int)CallManager.Response.StatusCode;
+    }
+
+    public string GetHeader(string headerName)
+    {
+        return CallManager.Response.Headers.Where(x => x.Name.ToString() == headerName).Select(x => x.Value).ToString();
+    }
+}
+```
+
+
+
 ### 3. Class Diagram
 
 ![image-20220807233539631](C:\Users\maksh\AppData\Roaming\Typora\typora-user-images\image-20220807233539631.png)
