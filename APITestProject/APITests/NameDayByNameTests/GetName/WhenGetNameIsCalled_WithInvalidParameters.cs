@@ -8,6 +8,10 @@ namespace APITests.NameDayByNameTests.GetName
 {
     public class WhenGetNameIsCalled_WithInvalidParameters
     {
+
+  
+
+
         NamedayForNameService _namedayForNameService;
 
         [OneTimeSetUp]
@@ -98,5 +102,6 @@ namespace APITests.NameDayByNameTests.GetName
             await _namedayForNameService.MakeRequest(param, Method.Get);
             Assert.That(_namedayForNameService.JsonResponse["error"]["country"][0].ToString(), Is.EqualTo("The country field is required."));
         }
+
     }
 }
