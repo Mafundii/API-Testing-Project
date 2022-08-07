@@ -18,7 +18,7 @@ namespace APITests.NameDayTomorrowTests.GetTomorrow
         }
 
         [Test]
-        public async Task GivenAnInvalidCountryInput_PostRequestForNamedayTomorrow_ReturnsError422WithRelevantMessage()
+        public async Task GivenAnInvalidCountryInput_PostRequestForNamedayTomorrow_ReturnsError422()
         {
             Dictionary<string, string> param = new Dictionary<string, string>
             {
@@ -28,11 +28,23 @@ namespace APITests.NameDayTomorrowTests.GetTomorrow
             await _namedayForTomorrowService.MakeRequest(param, Method.Get);
 
             Assert.That(_namedayForTomorrowService.GetStatusCode(), Is.EqualTo(422));
+        }
+
+        [Test]
+        public async Task GivenAnInvalidCountryInput_PostRequestForNamedayTomorrow_ReturnsRelevantMessage()
+        {
+            Dictionary<string, string> param = new Dictionary<string, string>
+            {
+                { "country", "xx" }
+            };
+
+            await _namedayForTomorrowService.MakeRequest(param, Method.Get);
+
             Assert.That(_namedayForTomorrowService.JsonResponse["error"]["country"][0].ToString(), Is.EqualTo("The selected country is invalid."));
         }
 
         [Test]
-        public async Task GivenAnInvalidTimezoneInput_PostRequestForNamedayTomorrow_ReturnsError422WithRelevantMessage()
+        public async Task GivenAnInvalidTimezoneInput_PostRequestForNamedayTomorrow_ReturnsError422()
         {
             Dictionary<string, string> param = new()
             {
@@ -42,6 +54,18 @@ namespace APITests.NameDayTomorrowTests.GetTomorrow
             await _namedayForTomorrowService.MakeRequest(param, Method.Get);
 
             Assert.That(_namedayForTomorrowService.GetStatusCode(), Is.EqualTo(422));
+        }
+
+        [Test]
+        public async Task GivenAnInvalidTimezoneInput_PostRequestForNamedayTomorrow_ReturnsRelevantMessage()
+        {
+            Dictionary<string, string> param = new()
+            {
+                { "timezone", "xx" }
+            };
+
+            await _namedayForTomorrowService.MakeRequest(param, Method.Get);
+
             Assert.That(_namedayForTomorrowService.JsonResponse["error"]["timezone"][0].ToString(), Is.EqualTo("The selected timezone is invalid."));
         }
     }
