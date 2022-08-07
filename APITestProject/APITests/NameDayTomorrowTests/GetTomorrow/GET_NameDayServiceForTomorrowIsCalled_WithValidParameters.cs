@@ -19,24 +19,69 @@ namespace APITests.NameDayTomorrowTests.GetTomorrow
         [Test]
         public async Task GivenNoParameters_PostRequestForNamedayTomorrow_ReturnsAllNamedaysForTomorrow()
         {
+            await _namedayForTomorrowService.MakeRequest(Method.Get);
 
+            Assert.That(_namedayForTomorrowService.JsonResponse["nameday"].Count, Is.EqualTo(20));
+        }
+
+        [Test]
+        public async Task GivenNoParameters_PostRequestForNamedayTomorrow_ReturnsStatus200()
+        {
             await _namedayForTomorrowService.MakeRequest(Method.Get);
 
             Assert.That(_namedayForTomorrowService.GetStatusCode(), Is.EqualTo(200));
-            Assert.That(_namedayForTomorrowService.JsonResponse["nameday"].Count, Is.EqualTo(20));
-            
         }
 
-        //[Test]
-        //public void GivenASpecifiedCountry_PostRequestForNamedayTomorrow_ReturnsOnlyNamedaysForThatCountry()
-        //{
+        [Test]
+        public async Task GivenCountryParameters_PostRequestForNamedayTomorrow_ReturnsCountryNamedaysForTomorrow()
+        {
+            var param = new Dictionary<string, string>
+            {
+                {"country", "pl" }
+            };
 
-        //}
+            await _namedayForTomorrowService.MakeRequest(param, Method.Get);
 
-        //[Test]
-        //public void GivenASpecifiedTimezone_PostRequestForNamedayTomorrow_ReturnsOnlyNamedaysForThatTimezone()
-        //{
+            Assert.That(_namedayForTomorrowService.JsonResponse["nameday"].Count, Is.EqualTo(1));
+        }
 
-        //}
+        [Test]
+        public async Task GivenCountryParameters_PostRequestForNamedayTomorrow_ReturnsStatus200()
+        {
+            var param = new Dictionary<string, string>
+            {
+                {"country", "pl" }
+            };
+
+            await _namedayForTomorrowService.MakeRequest(param, Method.Get);
+
+            Assert.That(_namedayForTomorrowService.GetStatusCode(), Is.EqualTo(200));
+        }
+
+        [Test]
+        public async Task GivenTimezoneParameters_PostRequestForNamedayTomorrow_ReturnsTimezoneNamedaysForTomorrow()
+        {
+            var param = new Dictionary<string, string>
+            {
+                { "timezone", "Europe/Lisbon" }
+            };
+
+            await _namedayForTomorrowService.MakeRequest(param, Method.Get);
+
+            Assert.That(_namedayForTomorrowService.JsonResponse["nameday"].Count, Is.EqualTo(20));
+        }
+
+        [Test]
+        public async Task GivenTimezoneParameters_PostRequestForNamedayTomorrow_ReturnsStatus200()
+        {
+            var param = new Dictionary<string, string>
+            {
+                { "timezone", "Europe/Lisbon" }
+            };
+
+            await _namedayForTomorrowService.MakeRequest(param, Method.Get);
+
+            Assert.That(_namedayForTomorrowService.GetStatusCode(), Is.EqualTo(200));
+        }
     }
 }
