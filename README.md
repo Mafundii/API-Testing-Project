@@ -110,3 +110,7 @@ The testing framework covers POST and GET requests for the following scenarios:
 - Not possible to check for a specific name in all countries, only one country at a time
 - When missing a parameter, returns Server Error 5XX instead of 4XX with relevant message
 - GetDate and PostDate with non-integer day return Error 422 with a relevant error message, but those with non-integer month return Error 500 without a relevant error message
+- Get and recieve speed is slow, tests take a long time to run (to solve, await data then run the tests)
+
+
+
