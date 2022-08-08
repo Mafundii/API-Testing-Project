@@ -108,3 +108,4 @@ The testing framework covers POST and GET requests for the following scenarios:
 ### 5. Defects Found
 
 - Not possible to check for a specific name in all countries, only one country at a time
+- When missing a parameter, returns Server Error 5XX instead of 4XX with relevant message
