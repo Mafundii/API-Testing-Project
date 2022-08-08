@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDaySpecificDateTests.PostDate
 {
+    [Category("PostDate")]
     public class WhenPostDateIsCalled_WithInvalidParameters
     {
         NamedayForDateService _namedayForDateService;
@@ -16,7 +17,6 @@ namespace APITests.NameDaySpecificDateTests.PostDate
             _namedayForDateService = new NamedayForDateService();
         }
 
-        [Category("Invalid Day")]
         [Test]
         public async Task GivenDayLessThanOne_PostDate_ReturnsError422()
         {
@@ -102,9 +102,6 @@ namespace APITests.NameDaySpecificDateTests.PostDate
             Assert.That(_namedayForDateService.JsonResponse["error"]["day"][0].ToString(), Is.EqualTo("The day field is required."));
         }
 
-
-
-        [Category("Invalid Month")]
         [Test]
         public async Task GivenMonthLessThanOne_PostDate_ReturnsError422()
         {
@@ -176,8 +173,6 @@ namespace APITests.NameDaySpecificDateTests.PostDate
             Assert.That(_namedayForDateService.JsonResponse["error"]["month"][0].ToString(), Is.EqualTo("The month field is required."));
         }
 
-
-        [Category("Invalid Country")]
         [Test]
         public async Task GivenInvalidCountry_PostDate_ReturnsError422()
         {

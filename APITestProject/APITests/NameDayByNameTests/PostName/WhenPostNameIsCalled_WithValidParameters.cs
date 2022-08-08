@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDayByNameTests.PostName
 {
+    [Category("PostName")]
     public class WhenPostNameIsCalled_WithValidParameters
     {
         NamedayForNameService _namedayForNameService;

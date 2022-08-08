@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDayByNameTests.GetName
 {
+    [Category("GetName")]
     public class WhenGetNameIsCalled_WithValidParameters
     {
         NamedayForNameService _namedayForNameService;

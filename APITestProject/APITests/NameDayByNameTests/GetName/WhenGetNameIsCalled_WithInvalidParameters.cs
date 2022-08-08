@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDayByNameTests.GetName
 {
+    [Category("GetName")]
     public class WhenGetNameIsCalled_WithInvalidParameters
     {
-
-  
-
-
         NamedayForNameService _namedayForNameService;
 
         [OneTimeSetUp]
@@ -20,7 +17,6 @@ namespace APITests.NameDayByNameTests.GetName
             _namedayForNameService = new NamedayForNameService();
         }
 
-        [Category("Invalid Name")]
         [Test]
         public async Task GivenNameWithOneCharacter_GetName_ReturnsError422()
         {
@@ -57,9 +53,6 @@ namespace APITests.NameDayByNameTests.GetName
             Assert.That(_namedayForNameService.GetStatusCode(), Is.EqualTo(422));
         }
 
-
-
-        [Category("Invalid Country")]
         [Test]
         public async Task GivenInvalidCountry_GetName_ReturnsError422()
         {
