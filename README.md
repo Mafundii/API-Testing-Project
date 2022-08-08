@@ -93,7 +93,7 @@ public class NamedayForTodayService
 
 ### 3. Class Diagram
 
-![image-20220807233539631](C:\Users\maksh\AppData\Roaming\Typora\typora-user-images\image-20220807233539631.png)
+![class diagram](https://user-images.githubusercontent.com/108397810/183383315-10be3ac2-8a8f-404f-9751-3101bcdafd35.PNG)
 
 ### 4. Test Coverage
 
