@@ -107,8 +107,11 @@ The testing framework covers POST and GET requests for the following scenarios:
 
 ### 5. Defects Found
 
-- Not possible to check for a specific name in all countries, only one country at a time
-- GetDate and PostDate with non-integer day return Error 422 with a relevant error message, but those with non-integer month return Error 500 without a relevant error message
+- PostName cannot check for a specific name in all countries, only one country at a time (issue 9.1)
+- GetName cannot check for a specific name in all countries, only one country at a time (issue 10.1)
+- PostDate with non-integer month returns Error 422 with a relevant error message, but with non-integer day it returns Error 500 without a relevant error message (issue 7.8)
+- GetDate with non-integer month returns Error 422 with a relevant error message, but with non-integer day it returns Error 500 without a relevant error message (issue 8.8)
+
 
 ### 6. Future recommendations
 - Get and recieve speed is slow, tests take a long time to run (to solve, await data then run the tests)
