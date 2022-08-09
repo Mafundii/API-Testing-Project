@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDayByNameTests.PostName
 {
+    [Category("PostName")]
     public class WhenPostNameIsCalled_WithInvalidParameters
     {
         NamedayForNameService _namedayForNameService;
@@ -16,7 +17,6 @@ namespace APITests.NameDayByNameTests.PostName
             _namedayForNameService = new NamedayForNameService();
         }
 
-        [Category("Invalid Name")]
         [Test]
         public async Task GivenNameWithOneCharacter_PostName_ReturnsError422()
         {
@@ -60,8 +60,6 @@ namespace APITests.NameDayByNameTests.PostName
             Assert.That(_namedayForNameService.JsonResponse["error"]["name"][0].ToString(), Is.EqualTo("The name field is required."));
         }
 
-
-        [Category("Invalid Country")]
         [Test]
         public async Task GivenInvalidCountry_PostName_ReturnsError422()
         {

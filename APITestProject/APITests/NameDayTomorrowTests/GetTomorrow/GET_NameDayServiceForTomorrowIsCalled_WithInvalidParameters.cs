@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDayTomorrowTests.GetTomorrow
 {
+    [Category("GetTomorrow")]
     public class GET_NameDayServiceForTomorrowIsCalled_WithInvalidParameters
     {
         NamedayForTomorrowService _namedayForTomorrowService;

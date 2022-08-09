@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDaySpecificDateTests.GetDate
 {
+    [Category("GetDate")]
     public class WhenGetDateIsCalled_WithValidParameters
     {
         NamedayForDateService _namedayForDateService;
@@ -16,7 +17,6 @@ namespace APITests.NameDaySpecificDateTests.GetDate
             _namedayForDateService = new NamedayForDateService();
         }
 
-        [Category("Valid Day and Month")]
         [Test]
         public async Task GivenValidDayAndMonth_GetDate_ReturnsStatusCode200()
         {

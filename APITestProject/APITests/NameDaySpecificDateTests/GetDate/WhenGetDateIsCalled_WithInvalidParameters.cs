@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDaySpecificDateTests.GetDate
 {
+    [Category("GetDate")]
     public class WhenGetDateIsCalled_WithInvalidParameters
     {
         NamedayForDateService _namedayForDateService;
@@ -16,7 +17,6 @@ namespace APITests.NameDaySpecificDateTests.GetDate
             _namedayForDateService = new NamedayForDateService();
         }
 
-        [Category("Invalid Day")]
         [Test]
         public async Task GivenDayLessThanOne_GetDate_ReturnsError422()
         {
@@ -102,9 +102,6 @@ namespace APITests.NameDaySpecificDateTests.GetDate
             Assert.That(_namedayForDateService.JsonResponse["error"]["day"][0].ToString(), Is.EqualTo("The day field is required."));
         }
 
-
-
-        [Category("Invalid Month")]
         [Test]
         public async Task GivenMonthLessThanOne_GetDate_ReturnsError422()
         {
@@ -176,8 +173,6 @@ namespace APITests.NameDaySpecificDateTests.GetDate
             Assert.That(_namedayForDateService.JsonResponse["error"]["month"][0].ToString(), Is.EqualTo("The month field is required."));
         }
 
-
-        [Category("Invalid Country")]
         [Test]
         public async Task GivenInvalidCountry_GetDate_ReturnsError422()
         {
@@ -185,6 +180,7 @@ namespace APITests.NameDaySpecificDateTests.GetDate
             await _namedayForDateService.MakeRequest(param, Method.Get);
             Assert.That(_namedayForDateService.GetStatusCode(), Is.EqualTo(422));
         }
+
         [Test]
         public async Task GivenInvalidCountry_GetDate_ReturnsRelevantErrorMessage()
         {

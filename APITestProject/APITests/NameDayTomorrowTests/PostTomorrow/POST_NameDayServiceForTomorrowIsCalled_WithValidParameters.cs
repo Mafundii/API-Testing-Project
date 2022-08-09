@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDayTodayTests.PostToday
 {
+    [Category("PostTomorrow")]
     public class POST_NameDayServiceForTodayIsCalled_WithValidParameters
     {
         NamedayForTomorrowService _namedayForTomorrowService;

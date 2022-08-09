@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITests.NameDaySpecificDateTests.PostDate
 {
+    [Category("PostDate")]
     public class WhenPostDateIsCalled_WithValidParameters
     {
         NamedayForDateService _namedayForDateService;
@@ -16,7 +17,6 @@ namespace APITests.NameDaySpecificDateTests.PostDate
             _namedayForDateService = new NamedayForDateService();
         }
 
-        [Category("Valid Day and Month")]
         [Test]
         public async Task GivenValidDayAndMonth_PostDate_ReturnsStatusCode200()
         {
@@ -46,9 +46,6 @@ namespace APITests.NameDaySpecificDateTests.PostDate
             Assert.That(_namedayForDateService.JsonResponse["nameday"], Does.ContainKey("us"));
         }
 
-
-
-        [Category("Valid Day, Month, and Country")]
         public async Task GivenValidDayMonthAndCountry_PostDate_ReturnsStatusCode200()
         {
             var param = new Dictionary<string, string> { { "day", "29" }, { "month", "2" }, { "country", "us" } };
